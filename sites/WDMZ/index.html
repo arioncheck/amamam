@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>био</title>
+    <style>
+        :root {
+            --primary-color: white;
+            --secondary-color: #666666;
+            --background-color: rgba(255, 255, 255, 0.05);
+            --button-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-image: url("https://i.ibb.co/35XJzqFS/425.jpg"); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Days;
+            color: var(--primary-color);
+            transition: background-image 0.5s ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/FPhPpEO.png');
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @font-face {
+            font-family: 'Days';
+            src: url('Days.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .content-container {
+            background-color: var(--background-color);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid var(--secondary-color);
+            margin: 0 15px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            width: 700px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 5px black;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid var(--secondary-color);
+            box-shadow: 0 0 5px black;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 1.6em; 
+            text-shadow: 0 0 5px black;
+            text-align: center; 
+        }
+
+        p {
+            white-space: pre-line;
+            text-shadow: 0 0 5px black;
+            font-size: 1em; 
+            text-align: left; 
+        }
+
+        /* Button styles */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start; 
+            background-color: var(--button-color);
+            color: var(--primary-color);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            width: 80%;
+            max-width: 400px; 
+            box-sizing: border-box;
+            text-shadow: 0 0 5px black;
+            transition: background-color 0.3s ease;
+            text-align: left; 
+        }
+
+        .button-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .button-image {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 10%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .content-container {
+                width: 90%;
+                margin: 0 5%;
+            }
+
+            h2 {
+                font-size: 1.4em; 
+            }
+
+            p {
+                font-size: 0.9em; 
+            }
+
+            .button-link {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <img src="https://i.ibb.co/Txg1z7NG/427.jpg" alt="WDMZ's Avatar" class="avatar">
+        <h2>WDMZ</h2>
+        <section>
+            <p>About me:
+
+Nickname: WDMZ
+
+Name: Dima
+
+Hobbie: Phonk
+
+Country: Russia
+
+I play these games:
+
+Dota 2, Counter Strike 2</p>
+        </section>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <a href="https://t.me/WDMZRM" class="button-link" title="WDMZ's Telegram Channel">
+                <img src="https://i.ibb.co/tp4V2Qv0/432.png" alt="Telegram Logo" class="button-image">
+                Telegram
+            </a>
+            <a href="https://music.yandex.ru/artist/20994971" class="button-link" title="WDMZ on Yandex Music">
+                <img src="https://i.ibb.co/0yKhX1QG/434.jpg" alt="Yandex Music Logo" class="button-image">
+                Яндекс музыка
+            </a>
+            <a href="https://music.mts.ru/artist/20994971" class="button-link" title="WDMZ on MTS Music">
+                <img src="https://i.ibb.co/0ys4LtjW/433.png" alt="MTS Music Logo" class="button-image">
+                Мтс музыка
+            </a>
+            <a href="https://t.me/WDMZ_music" class="button-link" title="WDMZ's Music Telegram Channel">
+                <img src="https://i.ibb.co/tp4V2Qv0/432.png" alt="Telegram Music Channel Logo" class="button-image">
+                Тг канал
+            </a>
+        </div>
+    </div>
+</body>
+  </html>
