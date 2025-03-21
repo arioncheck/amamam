@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила модерации</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: 'monospace', monospace;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+
+        .buttons-container {
+            background-color: #333;
+            border-top: 1px solid rgb(147, 155, 219);
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 0 7px rgba(147, 155, 219, 0.5);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .button {
+            background-color: #333;
+            border: 1px solid rgb(147, 155, 219);
+            border-radius: 15px;
+            color: #fff;
+            padding: 6px 12px;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(147, 155, 219, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 12px;
+            white-space: nowrap;
+            user-select: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .button:hover {
+            background-color: rgb(147, 155, 219);
+            box-shadow: 0 0 15px rgba(147, 155, 219, 0.8);
+        }
+
+        .button.active {
+            background-color: rgb(147, 155, 219);
+            box-shadow: 0 0 15px rgba(147, 155, 219, 0.8);
+        }
+
+        .rule-group {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .rule-group.active {
+            display: block;
+        }
+
+        .rule-item {
+            background-color: #333;
+            border-bottom: 1px solid rgb(147, 155, 219);
+            border-right: 1px solid rgb(147, 155, 219);
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 7px rgba(147, 155, 219, 0.5);
+        }
+
+        .rule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .rule-item h4 {
+            margin: 0;
+            color: rgb(147, 155, 219);
+            font-size: 14px;
+        }
+
+        .rule-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rule-group active" id="mute-rules">
+        <div class="rule-item">
+            <h4>Прямое оскорбление участников чата</h4>
+            <p>Наказание: 3 часа.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Оскорбление администрации (по усмотрению)</h4>
+            <p>Наказание: 6 часов.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Спам/Флуд</h4>
+            <p>Наказание: 3 часа.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Фейк команда(2+)/report (fr)</h4>
+            <p>Наказание: 20/30 минут.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Упоминание родни</h4>
+            <p>Наказание: 8 часов + Варн!</p>
+        </div>
+        <div class="rule-item">
+            <h4>Оскорбление проекта</h4>
+            <p>Наказание: 12 часов + Варн!</p>
+        </div>
+        <div class="rule-item">
+            <h4>Любой вид рекламы/пиара (на усмотрение модерации)</h4>
+            <p>Наказание: 12 часов + Варн!</p>
+        </div>
+        <div class="rule-item">
+            <h4>Обмен (аккаунты/реклама/прочее)</h4>
+            <p>Наказание: 5 часов + Варн!</p>
+        </div>
+        <div class="rule-item">
+            <h4>Спам реакциями (10+)</h4>
+            <p>Наказание: 30 минут + Варн! [Жестоко я знаю]</p>
+        </div>
+        <div class="rule-item">
+            <h4>Буллинг на основе социального статуса и экономического положения</h4>
+            <p>Наказание: 120 минут.</p>
+        </div>
+    </div>
+
+    <div class="rule-group" id="warn-rules">
+        <div class="rule-item">
+            <h4>Упоминание других проектов в рекламной форме</h4>
+            <p>Наказание: Варн.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Фейк информация насчёт кряка/чита</h4>
+            <p>Наказание: Варн.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Крики, громкие звуки и прочее в войс чате</h4>
+            <p>Наказание: Варн.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Копирование членов модерации (профиль/ник) + Выдача себя за члена модерации</h4>
+            <p>Наказание: Варн.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Свастика/Национализм/Расизм (На усмотрение модерации)</h4>
+            <p>Наказание: Варн.</p>
+        </div>
+    </div>
+
+    <div class="rule-group" id="ban-rules">
+        <div class="rule-item">
+            <h4>Прямое оскорбление родни</h4>
+            <p>Наказание: Бан.</p>
+        </div>
+        <div class="rule-item">
+            <h4>18+ / Краш стикеры</h4>
+            <p>Наказание: Бан.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Учащённое попрошайничество ранга модерации</h4>
+            <p>Наказание: Бан.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Обход наказания (твинк / снятие через члена модерации)</h4>
+            <p>Наказание: Бан. В случае снятия через модерацию, снявший наказание получит варн от главного админа или руководителя.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Любой вид мошенничества на мнение модерации чата</h4>
+            <p>Наказание: Бан. Возможен разбан, но под разбором главного админа или руководителя.</p>
+        </div>
+        <div class="rule-item">
+            <h4>Любой вид продажи/покупки чего-либо через чат с учётом завлечения в личку или на прямую через чат по мнению модерации</h4>
+            <p>Наказание: Бан. Возможен разбан, но под разбором главного админа или руководителя.</p>
+        </div>
+    </div>
+
+    <div class="rule-group" id="note-rules">
+        <div class="rule-item">
+            <h4>Примечание</h4>
+            <p>Модерация обязана удалять спам команды по типу /privet и прочие выдуманные команды.</p>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <div class="button" data-type="mute">Мут</div>
+        <div class="button" data-type="warn">Варн</div>
+        <div class="button" data-type="ban">Бан</div>
+        <div class="button" data-type="note">Примечание</div>
+    </div>
+
+    <script>
+        const ruleButtons = document.querySelectorAll('.button[data-type]');
+        const muteRules = document.getElementById('mute-rules');
+        const warnRules = document.getElementById('warn-rules');
+        const banRules = document.getElementById('ban-rules');
+        const noteRules = document.getElementById('note-rules');
+
+        ruleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const type = button.getAttribute('data-type');
+
+                ruleButtons.forEach(btn => btn.classList.remove('active'));
+
+                muteRules.classList.remove('active');
+                warnRules.classList.remove('active');
+                banRules.classList.remove('active');
+                noteRules.classList.remove('active');
+
+                button.classList.add('active');
+
+                if (type === 'mute') {
+                    muteRules.classList.add('active');
+                } else if (type === 'warn') {
+                    warnRules.classList.add('active');
+                } else if (type === 'ban') {
+                    banRules.classList.add('active');
+                } else if (type === 'note') {
+                    noteRules.classList.add('active');
+                }
+
+                button.blur();
+            });
+        });
+
+        document.querySelector('.button[data-type="mute"]').classList.add('active');
+    </script>
+
+</body>
+</html>
