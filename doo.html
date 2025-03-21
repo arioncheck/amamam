@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переход на сайт</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        img {
+            max-width: 70%;
+            max-height: 70%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://envs.sh/nov.webp" alt="Загрузка...">
+
+    <script>
+        const redirectUrl = "https://службапоконтракту.рф/";
+
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 3000);
+    </script>
+</body>
+</html>
