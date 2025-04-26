@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Био страница</title>
+    <style>
+        body {
+            background-image: url("https://i.ibb.co/35XJzqFS/425.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: monospace;
+            color: white;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            z-index: -1;
+        }
+        .content-container {
+            background-color: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #666;
+            margin: 15px;
+            backdrop-filter: blur(10px);
+            width: 700px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(168, 126, 255, 0.5);
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid #666;
+            box-shadow: 0 0 10px rgba(168, 126, 255, 0.5);
+        }
+         .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--border-color);
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            z-index: 3;
+        }
+        
+        .content-container:hover .corner {
+            opacity: 0.8;
+        }
+        
+        .corner-tl {
+            top: 8px;
+            left: 8px;
+            border-right: none;
+            border-bottom: none;
+            border-top-left-radius: 3px;
+        }
+        
+        .corner-tr {
+            top: 8px;
+            right: 8px;
+            border-left: none;
+            border-bottom: none;
+            border-top-right-radius: 3px;
+        }
+        
+        .corner-bl {
+            bottom: 8px;
+            left: 8px;
+            border-right: none;
+            border-top: none;
+            border-bottom-left-radius: 3px;
+        }
+        
+        .corner-br {
+            bottom: 8px;
+            right: 8px;
+            border-left: none;
+            border-top: none;
+            border-bottom-right-radius: 3px;
+        }
+        h2 {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+        p {
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+            white-space: pre-line;
+            word-wrap: break-word;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .content-container { 
+                width: 90%; 
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        
+        <h2>Моя био страница</h2>
+        <p>Добро пожаловать на мою страницу!</p>
+    </div>
+</body>
+</html>
