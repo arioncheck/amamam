@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenBio</title>
+    <meta name="description" content="GenBio - проект для создания бесплатных био страниц без знания программирования.">
+    <meta name="keywords" content="bio, генератор биографии, био страница, создать сайт, бесплатно, без программирования">
+    <link rel="icon" href="https://envs.sh/OX.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="welcome-container">
+            <img src="https://envs.sh/mD.png" alt="GenBio Logo" class="welcome-logo">
+            <h1>GenBio</h1>
+            <p>Проект для легкого создания био страниц</p>
+            <div class="welcome-buttons">
+                <button id="createNewSiteBtn">Создать сайт</button>
+                <button id="mySitesBtn">Мои сайты</button>
+            </div>
+        </div>
+
+        <div id="creationSection" style="display: none;">
+            <div class="container">
+                <h2 class="title">𝔊𝔢𝔫𝔅𝔦𝔬</h2>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Название сайта:</h3>
+                    <input type="text" id="siteNameInput" placeholder="Введите название сайта">
+                </div>
+                <div class="input-group" id="backgroundContainer">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Фоновое изображение:</h3>
+                    <div class="image-container" id="backgroundPicker">
+                        <img id="backgroundPreview" src="" class="image-preview" style="display:none;">
+                    </div>
+                    <input type="file" id="backgroundFileInput" class="file-input" accept="image/*">
+                </div>
+                <div class="input-group" id="avatarContainer">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Аватар:</h3>
+                    <div id="regularAvatarContainer">
+                        <div class="image-container" id="avatarPicker">
+                            <img id="avatarPreview" src="" class="image-preview" style="display:none;">
+                        </div>
+                        <input type="file" id="avatarFileInput" class="file-input" accept="image/*">
+                    </div>
+                    <div class="telegram-settings">
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Использовать аватар из Telegram</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="telegramAvatarToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div id="telegramUsernameContainer" style="display: none;" class="telegram-url-container">
+                            <span class="telegram-url-label">Юзернейм аккаунта:</span>
+                            <div class="telegram-input-wrapper">
+                                <input type="text" id="telegramUsernameInput" placeholder="Введите юзернейм Telegram (без @)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Заголовок:</h3>
+                    <input type="text" id="titleInput" placeholder="Введите заголовок">
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Информация:</h3>
+                    <textarea id="infoInput" placeholder="Введите информацию для сайта" rows="4"></textarea>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Настройки счетчика посещений:</h3>
+                    <div class="counter-settings">
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Включить счетчик посещений</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="counterToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div id="counterThemeSelector" class="theme-selector">
+                            <span class="theme-selector-label">Тема счетчика:</span>
+                            <div class="theme-dropdown">
+                                <div class="selected-theme" id="selectedTheme">
+                                    <span class="theme-name">gelbooru-h</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </div>
+                                <div class="theme-options" id="themeOptions">
+                                    <div class="theme-option" data-theme="gelbooru-h">gelbooru-h</div>
+                                    <div class="theme-option" data-theme="rule34">rule34</div>
+                                    <div class="theme-option" data-theme="3d-num">3d-num</div>
+                                    <div class="theme-option" data-theme="moebooru">moebooru</div>
+                                    <div class="theme-option" data-theme="moebooru-h">moebooru-h</div>
+                                    <div class="theme-option" data-theme="asoul">asoul</div>
+                                    <div class="theme-option" data-theme="gelbooru">gelbooru</div>
+                                    <div class="theme-option" data-theme="danbooru">danbooru</div>
+                                    <div class="theme-option" data-theme="moebooru-white">moebooru-white</div>
+                                    <div class="theme-option" data-theme="rule34-white">rule34-white</div>
+                                    <div class="theme-option" data-theme="moe">moe</div>
+                                    <div class="theme-option" data-theme="pixiv">pixiv</div>
+                                    <div class="theme-option" data-theme="asoul-white">asoul-white</div>
+                                    <div class="theme-option" data-theme="gelbooru-white">gelbooru-white</div>
+                                    <div class="theme-option" data-theme="danbooru-white">danbooru-white</div>
+                                    <div class="theme-option" data-theme="moebooru-b">moebooru-b</div>
+                                    <div class="theme-option" data-theme="rule34-b">rule34-b</div>
+                                    <div class="theme-option" data-theme="gelbooru-b">gelbooru-b</div>
+                                    <div class="theme-option" data-theme="danbooru-b">danbooru-b</div>
+                                    <div class="theme-option" data-theme="asoul-b">asoul-b</div>
+                                    <div class="theme-option" data-theme="cm-bilibili">cm-bilibili</div>
+                                    <div class="theme-option" data-theme="gb-white">gb-white</div>
+                                    <div class="theme-option" data-theme="gb-dark">gb-dark</div>
+                                    <div class="theme-option" data-theme="moe-white">moe-white</div>
+                                    <div class="theme-option" data-theme="fcircle">fcircle</div>
+                                    <div class="theme-option" data-theme="fof-900">fof-900</div>
+                                    <div class="theme-option" data-theme="fof-100">fof-100</div>
+                                    <div class="theme-option" data-theme="moebooru-alt">moebooru-alt</div>
+                                    <div class="theme-option" data-theme="glitch">glitch</div>
+                                    <div class="theme-option" data-theme="cyberpunk">cyberpunk</div>
+                                    <div class="theme-option" data-theme="neon">neon</div>
+                                    <div class="theme-option" data-theme="retro">retro</div>
+                                    <div class="theme-option" data-theme="retro-blue">retro-blue</div>
+                                    <div class="theme-option" data-theme="retro-cyan">retro-cyan</div>
+                                    <div class="theme-option" data-theme="twitch">twitch</div>
+                                    <div class="theme-option" data-theme="ai-1">ai-1</div>
+                                    <div class="theme-option" data-theme="booru-ffsr">booru-ffsr</div>
+                                    <div class="theme-option" data-theme="booru-helltaker">booru-helltaker</div>
+                                    <div class="theme-option" data-theme="booru-huggboo">booru-huggboo</div>
+                                    <div class="theme-option" data-theme="booru-jaypee">booru-jaypee</div>
+                                    <div class="theme-option" data-theme="booru-koe">booru-koe</div>
+                                    <div class="theme-option" data-theme="booru-lewd">booru-lewd</div>
+                                    <div class="theme-option" data-theme="booru-lisu">booru-lisu</div>
+                                    <div class="theme-option" data-theme="booru-mjg">booru-mjg</div>
+                                    <div class="theme-option" data-theme="booru-mof">booru-mof</div>
+                                    <div class="theme-option" data-theme="booru-nandroid">booru-nandroid</div>
+                                    <div class="theme-option" data-theme="booru-qualityhentais">booru-qualityhentais</div>
+                                    <div class="theme-option" data-theme="booru-r6gdrawfriends">booru-r6gdrawfriends</div>
+                                    <div class="theme-option" data-theme="booru-rfck">booru-rfck</div>
+                                    <div class="theme-option" data-theme="booru-smtg">booru-smtg</div>
+                                    <div class="theme-option" data-theme="booru-snyde">booru-snyde</div>
+                                    <div class="theme-option" data-theme="booru-the-collection">booru-the-collection</div>
+                                    <div class="theme-option" data-theme="booru-touhoulat">booru-touhoulat</div>
+                                    <div class="theme-option" data-theme="booru-townofgravityfalls">booru-townofgravityfalls</div>
+                                    <div class="theme-option" data-theme="booru-twifanartsfw">booru-twifanartsfw</div>
+                                    <div class="theme-option" data-theme="booru-ve">booru-ve</div>
+                                    <div class="theme-option" data-theme="booru-vivi">booru-vivi</div>
+                                    <div class="theme-option" data-theme="booru-vp">booru-vp</div>
+                                    <div class="theme-option" data-theme="booru-yuyuyui">booru-yuyuyui</div>
+                                    <div class="theme-option" data-theme="capoo-1">capoo-1</div>
+                                    <div class="theme-option" data-theme="capoo-2">capoo-2</div>
+                                    <div class="theme-option" data-theme="e621">e621</div>
+                                    <div class="theme-option" data-theme="food">food</div>
+                                    <div class="theme-option" data-theme="green">green</div>
+                                    <div class="theme-option" data-theme="kasuterura-1">kasuterura-1</div>
+                                    <div class="theme-option" data-theme="kasuterura-2">kasuterura-2</div>
+                                    <div class="theme-option" data-theme="kasuterura-3">kasuterura-3</div>
+                                    <div class="theme-option" data-theme="kasuterura-4">kasuterura-4</div>
+                                    <div class="theme-option" data-theme="kyun">kyun</div>
+                                    <div class="theme-option" data-theme="love-and-deepspace">love-and-deepspace</div>
+                                    <div class="theme-option" data-theme="miku">miku</div>
+                                    <div class="theme-option" data-theme="minecraft">minecraft</div>
+                                    <div class="theme-option" data-theme="morden-num">morden-num</div>
+                                    <div class="theme-option" data-theme="nixietube-1">nixietube-1</div>
+                                    <div class="theme-option" data-theme="nixietube-2">nixietube-2</div>
+                                    <div class="theme-option" data-theme="normal-1">normal-1</div>
+                                    <div class="theme-option" data-theme="normal-2">normal-2</div>
+                                    <div class="theme-option" data-theme="original-new">original-new</div>
+                                    <div class="theme-option" data-theme="original-old">original-old</div>
+                                    <div class="theme-option" data-theme="shimmie2">shimmie2</div>
+                                    <div class="theme-option" data-theme="sketch-1">sketch-1</div>
+                                    <div class="theme-option" data-theme="sketch-2">sketch-2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Настройки музыки:</h3>
+                    <div class="music-settings">
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Включить музыку</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="musicToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div id="musicUrlContainer" style="display: none;" class="music-url-container">
+                            <span class="music-url-label">Ссылка на музыку:</span>
+                            <div class="music-input-wrapper">
+                                <input type="text" id="musicUrlInput" placeholder="Введите ссылку на музыку (mp3)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Настройки анимаций:</h3>
+                    <div class="animations-settings">
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Снег</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="snowToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Частицы</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="particlesToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Дрожащая анимация</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="shakeToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">Темнота фона</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="backgroundDarknessToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Настройки закругления:</h3>
+                    <div class="radius-settings">
+                        <div class="slider-wrapper">
+                            <input type="range" id="borderRadiusSlider" min="0" max="25" value="10" class="slider">
+                            <span class="slider-value" id="borderRadiusValue">10px</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <h3><img src="https://envs.sh/OX.png" alt="emoji" class="form-emoji"> Настройки свечения:</h3>
+                    <div class="glow-settings">
+                        <div class="glow-input">
+                            <div class="color-input-wrapper">
+                                <input type="color" id="containerGlowColor" value="#a87eff">
+                                <span class="color-label">Цвет контейнера и авы</span>
+                            </div>
+                        </div>
+                        <div class="glow-input">
+                            <div class="color-input-wrapper">
+                                <input type="color" id="textGlowColor" value="#ffffff">
+                                <span class="color-label">Цвет текста</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="previewButton">Предпросмотр</button>
+                    <button id="createButton">Создать сайт</button>
+                </div>
+                
+                <div id="linkContainer" style="display: none;">
+                    <div id="countdownContainer"></div>
+                    <div id="resultContainer" style="display: none;">
+                        <p class="success-message">Ваш сайт создан!</p>
+                        <p>Ссылка: <a href="#" id="siteLink" target="_blank"></a></p>
+                        <button id="viewCodeButton">Посмотреть код</button>
+                    </div>
+                </div>
+            </div>
+            <button id="backToMainBtn" class="back-button">Назад</button>
+        </div>
+
+        <div id="mySitesSection" style="display: none;">
+            <div class="container">
+                <h2 class="title">Мои сайты</h2>
+                <div id="sitesList" class="sites-list"></div>
+            </div>
+            <button id="backToMainBtn2" class="back-button">Назад</button>
+        </div>
+
+        <div class="code-container" id="codeContainer">
+            <div class="code-header">
+                <div class="code-title">КОД</div>
+                <button class="copy-btn" id="copyCodeBtn">Копировать</button>
+            </div>
+            <div class="code-wrapper">
+                <pre id="codeContent"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
