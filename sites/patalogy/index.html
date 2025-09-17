@@ -502,7 +502,7 @@
                 opacity: 0.8;
             }
             100% {
-                transform: translateY(-100vh) translateX(calc(88.51520345877114px));
+                transform: translateY(-100vh) translateX(calc(77.39562492463523px));
                 opacity: 0;
             }
         }
@@ -614,7 +614,7 @@
 </head>
 <body>
     
-    
+    <div id="particlesContainer" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></div>
     
     <div class="content-container">
         <img src="https://t.me/i/userpic/320/patalogicaly.jpg" class="avatar" loading="lazy">
@@ -622,9 +622,9 @@
             <h2 class="slide-up">Patalogy Biography </h2>
         </div>
         <div class="heading-with-emoji">
-            <p class="slide-up">Quote</p>
+            <p class="slide-up">добро пожаловать.</p>
         </div>
-        <img src="https://count.getloli.com/get/@7okqi?theme=minecraft" 
+        <img src="https://count.getloli.com/get/@lvcqm?theme=minecraft" 
             alt="Счетчик посещений" loading="lazy" class="counter-img" width="250">
     </div>
 
@@ -646,6 +646,43 @@
     <script>
         document.documentElement.style.setProperty('--border-radius', '10px');
     
+        
+        function setupParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            if (!particlesContainer) return;
+            
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle(particlesContainer);
+            }
+        }
+        
+        function createParticle(container) {
+            const particle = document.createElement('div');
+            const size = Math.random() * 6 + 3;
+            
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                bottom: -20px;
+                left: ${Math.random() * 100}vw;
+                opacity: 0;
+                pointer-events: none;
+                animation: float ${Math.random() * 10 + 10}s ease-out infinite;
+                box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            `;
+            
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            container.appendChild(particle);
+        }
+        
+        setupParticles();
+        
+        window.addEventListener('load', setupParticles);
         
         
         function togglePanel(panelId, closeOthers = true) {
